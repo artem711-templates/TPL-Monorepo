@@ -1,16 +1,24 @@
 // PLUGINS IMPORTS //
 import { FirebaseAdminModule } from '@aginix/nestjs-firebase-admin'
 import { Test, TestingModule } from '@nestjs/testing'
-import { TypeOrmModule } from '@nestjs/typeorm'
 import admin from 'firebase-admin'
+import { PrismaService } from '../../services/prisma.service'
 
 // EXTRA IMPORTS //
-import { UserEntity } from '../../models'
 import { UserService } from '../../services/user.service'
-import { TypeORMConfig } from '../../config'
 import { RegisterInput } from './dto/register.input'
 
 /////////////////////////////////////////////////////////////////////////////
+function randomString(length) {
+  var result = ''
+  var characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_+=-'
+  var charactersLength = characters.length
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}
 
 describe('UserResolver Unit test', () => {
   let service: UserService
@@ -18,27 +26,25 @@ describe('UserResolver Unit test', () => {
   const input: RegisterInput = {
     firstname: 'Alexandro',
     lastname: 'Jefferson',
-    email: 'tap.kap.tap@gmail.com',
+    email: `${randomString(4)}@gmail.com`,
     password: '12345678',
   }
   let data = {
     id: null,
+    createdAt: null,
+    updatedAt: null,
   }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
-        TypeOrmModule.forRootAsync({
-          useClass: TypeORMConfig,
-        }),
-        TypeOrmModule.forFeature([UserEntity]),
         FirebaseAdminModule.forRootAsync({
           useFactory: () => ({
             credential: admin.credential.applicationDefault(),
           }),
         }),
       ],
-      providers: [UserService],
+      providers: [UserService, PrismaService],
     }).compile()
 
     service = module.get<UserService>(UserService)
@@ -51,15 +57,17 @@ describe('UserResolver Unit test', () => {
   describe('user operations', () => {
     it('should return an account', async () => {
       const result = await service.register(input)
-      const { id, ...obj } = result
+      const { id, createdAt, updatedAt, ...obj } = result
 
       expect(obj).toEqual(input)
-      data = { id }
+      data = { id, createdAt, updatedAt }
     })
 
     it('should retrieve the created account', async () => {
       const result = await service.getProfile(data.id)
       expect(result).toEqual({ ...input, ...data })
     })
+
+    it('should delete the account', async () => {})
   })
 })

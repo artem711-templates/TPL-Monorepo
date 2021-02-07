@@ -32,6 +32,7 @@ export class UserResolver {
     input: RegisterInput,
     @Context() context
   ): Promise<UserEntity> {
+    console.log('dskjandsa')
     const user = context.req.user_credentials
     return this.userService.register(input)
   }
