@@ -3,9 +3,9 @@ import { Injectable } from '@nestjs/common'
 import { UserInputError } from 'apollo-server-express'
 
 // # COMPONENTS IMPORTS //
-import { UserEntity } from '../models'
-import { PrismaService } from '../services/prisma.service'
-import { RegisterInput } from '../routes/user/dto/register.input'
+import { UserEntity } from '@server/models'
+import { PrismaService } from '@server/services'
+import { RegisterInput } from '@server/resolvers/user/dto'
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -17,7 +17,7 @@ export class UserService {
     return await this.prisma.user.create({ data })
   }
 
-  async getProfile(id: string): Promise<UserEntity> {
+  async getProfile(id: string): Promise<UserEntity | null> {
     try {
       return await this.prisma.user.findUnique({ where: { id } })
     } catch (error) {

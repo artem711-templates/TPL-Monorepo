@@ -26,7 +26,9 @@
       "@mobile/cp/molecules": ["apps/mobile/src/components/molecules"],
       "@mobile/cp/organisms": ["apps/mobile/src/components/organisms"],
       // Website
-      "@web/redux": ["apps/web/src/state"]
+      "@web/redux": ["apps/web/src/state"],
+      // Server
+      "@server/*": ["apps/server/src/app/*"]
     },
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true

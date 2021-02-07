@@ -5,8 +5,8 @@ import { FirebaseAdminModule } from '@aginix/nestjs-firebase-admin'
 import * as admin from 'firebase-admin'
 
 // EXTRA IMPORTS //
-import { GraphQLConfig } from './config'
-import * as routes from './routes'
+import * as resolvers from '@server/resolvers'
+import { GraphQLConfig } from '@server/config'
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ import * as routes from './routes'
         credential: admin.credential.applicationDefault(),
       }),
     }),
-    ...Object.values(routes),
+    ...Object.values(resolvers),
   ],
   controllers: [],
   providers: [],

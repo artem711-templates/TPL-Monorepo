@@ -1,5 +1,10 @@
+// # PLUGINS IMPORTS //
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
+
+// # COMPONENTS IMPORTS //
+
+/////////////////////////////////////////////////////////////////////////////
 
 @Injectable()
 export class PrismaService

@@ -2,9 +2,8 @@
 import { Resolver, Query, Args, Mutation, Context } from '@nestjs/graphql'
 
 // EXTRA IMPORTS //
-import { UserEntity } from '../../models'
-import { UserService } from '../../services/user.service'
-import { PrismaService } from '../../services/prisma.service'
+import { UserEntity } from '@server/models'
+import { PrismaService, UserService } from '@server/services'
 
 import { RegisterInput } from './dto/register.input'
 
@@ -21,8 +20,8 @@ export class UserResolver {
    * @param _id {string} ID of the user we want get
    * @returns {Promise<UserEntity>} User info we got from database
    */
-  @Query(() => UserEntity)
-  async getProfile(@Args('id') id: string): Promise<UserEntity> {
+  @Query(() => UserEntity || null)
+  async getProfile(@Args('id') id: string): Promise<UserEntity | null> {
     return await this.userService.getProfile(id)
   }
 
@@ -35,7 +34,7 @@ export class UserResolver {
   async register(
     @Args('input')
     input: RegisterInput,
-    @Context() context
+    @Context() context: any
   ): Promise<UserEntity> {
     const user = context.req.user_credentials
     return this.userService.register(input)
