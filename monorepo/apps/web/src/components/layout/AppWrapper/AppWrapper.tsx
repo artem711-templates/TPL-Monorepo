@@ -10,21 +10,17 @@ import {
 import { setContext } from '@apollo/client/link/context'
 
 // COMPONENTS IMPORTS //
-import store from '../../../state/store'
-import i18n from '../../../i18n'
+import store from '@web/state/store'
+import i18n from '@web/i18n'
 
 // EXTRA IMPORTS //
-import { ThemeProvider } from '../../../shared/theme/theme.index'
-import {
-  FixedGlobalStyle,
-  ThemedGlobalStyle,
-} from '../../../shared/theme/theme.styles'
+import { ThemeBase, ThemeStyles } from '@web/shared/theme'
 
 /////////////////////////////////////////////////////////////////////////////
 
 function AppWrapper(props: { children: ReactNode }) {
   const httpLink = createHttpLink({
-    uri: 'http://localhost:3000/graphql',
+    uri: 'http://localhost:3001/graphql',
   })
 
   const authLink = setContext((_: any, { headers }: any) => {
@@ -45,12 +41,12 @@ function AppWrapper(props: { children: ReactNode }) {
   return (
     <ApolloProvider client={client}>
       <StrictMode>
-        <FixedGlobalStyle />
+        <ThemeStyles.FixedGlobalStyle />
         <Provider store={store}>
-          <ThemeProvider>
-            <ThemedGlobalStyle />
+          <ThemeBase.ThemeProvider>
+            <ThemeStyles.ThemedGlobalStyle />
             {props.children}
-          </ThemeProvider>
+          </ThemeBase.ThemeProvider>
         </Provider>
       </StrictMode>
     </ApolloProvider>

@@ -26,7 +26,7 @@
       "@mobile/cp/molecules": ["apps/mobile/src/components/molecules"],
       "@mobile/cp/organisms": ["apps/mobile/src/components/organisms"],
       // Website
-      "@web/redux": ["apps/web/src/state"],
+      "@web/*": ["apps/web/src/*"],
       // Server
       "@server/*": ["apps/server/src/app/*"]
     },
