@@ -19,6 +19,7 @@ input RegisterInput {
   email: String!
   firstName: String
   lastName: String
+  uid: ID!
 }
 
 type UserEntity {

@@ -37,8 +37,6 @@ export class UserResolver {
     @Context() context: any
   ) {
     const { email, uid } = context.req.user_credentials
-
-    return {}
     return this.userService.register({ ...input, email, uid })
   }
 }

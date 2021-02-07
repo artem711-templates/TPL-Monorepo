@@ -33,10 +33,6 @@ export default function Index() {
     `
   )
 
-  console.log(error)
-
-  console.log(registerUserData)
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
