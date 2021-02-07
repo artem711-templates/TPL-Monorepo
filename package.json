@@ -11,11 +11,10 @@
     "nx:start": "nx serve",
     "nx:test": "nx test",
     "nx:build": "nx build",
-    "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
-    "format": "nx format:write",
     "dep-graph": "nx dep-graph",
-    "postinstall": "patch-package"
+    "lint": "bash tools/shell/lint.sh changed",
+    "postinstall": "patch-package && npm run prisma:generate"
   },
   "private": true,
   "dependencies": {
@@ -133,7 +132,6 @@
     "husky": "^4.3.8",
     "jest": "26.2.2",
     "jest-expo": "^40.0.2",
-    "lint-staged": "^10.5.3",
     "prettier": "2.2.1",
     "prisma": "^2.16.0",
     "react-test-renderer": "^17.0.1",
@@ -145,15 +143,10 @@
   "jest": {
     "preset": "jest-expo/universal"
   },
-  "lint-staged": {
-    "*.ts": [
-      "yarn format",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "yarn lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
