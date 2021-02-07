@@ -2,11 +2,10 @@
 import { FirebaseAdminModule } from '@aginix/nestjs-firebase-admin'
 import { Test, TestingModule } from '@nestjs/testing'
 import admin from 'firebase-admin'
-import { PrismaService } from '../services/prisma.service'
 
 // EXTRA IMPORTS //
-import { UserService } from '../services/user.service'
-import { RegisterInput } from '../routes/user/dto/register.input'
+import { PrismaService, UserService } from '@server/services'
+import { RegisterInput } from '@server/resolvers/user/dto/register.input'
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -27,13 +26,12 @@ describe('UserResolver Unit test', () => {
   const input: RegisterInput = {
     firstname: 'Alexandro',
     lastname: 'Jefferson',
-    email: `${randomString(4)}@gmail.com`,
-    password: '12345678',
   }
+
   let data = {
-    id: null,
-    createdAt: null,
-    updatedAt: null,
+    id: '',
+    createdAt: '' as string | Date,
+    updatedAt: '' as string | Date,
   }
 
   beforeEach(async () => {
