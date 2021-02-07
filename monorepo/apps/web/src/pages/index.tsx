@@ -23,6 +23,8 @@ export default function Index() {
   const { selectedTheme, setTheme } = useThemeSelector()
   const { t } = useTranslation('common')
 
+  // const [register, {}] = useLazyQuery(gql``, { variables: {} })
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {

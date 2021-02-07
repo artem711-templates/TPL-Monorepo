@@ -17,11 +17,12 @@ export class AuthGuard implements CanActivate {
   }
 
   async validate(ctx: GqlExecutionContext) {
-    // const req = ctx.getContext().req
-    // const { token } = req.headers
+    const req = ctx.getContext().req
+    const { authorization } = req.headers
+    console.log('token', authorization)
 
-    // const decoded = await this.firebaseAuth.verifyIdToken(token)
-    // req.user_credentials = decoded
+    const decoded = await this.firebaseAuth.verifyIdToken(authorization)
+    req.user_credentials = decoded
     return true
   }
 }
