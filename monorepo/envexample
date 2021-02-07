@@ -1,0 +1,10 @@
+# POSTGRES
+POSTGRES_USER=prisma
+POSTGRES_PASSWORD=topsecret
+POSTGRES_DB=blog
+
+# Prisma database connection
+DATABASE_URL="postgresql://artem:root@localhost:5432/test?schema=public"
+
+# Security
+JWT_SECRET=m&XAFzBpM3es
