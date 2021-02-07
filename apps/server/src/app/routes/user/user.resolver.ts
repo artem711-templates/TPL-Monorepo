@@ -4,13 +4,18 @@ import { Resolver, Query, Args, Mutation, Context } from '@nestjs/graphql'
 // EXTRA IMPORTS //
 import { UserEntity } from '../../models'
 import { UserService } from '../../services/user.service'
+import { PrismaService } from '../../services/prisma.service'
+
 import { RegisterInput } from './dto/register.input'
 
 /////////////////////////////////////////////////////////////////////////////
 
 @Resolver('User')
 export class UserResolver {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly prisma: PrismaService
+  ) {}
 
   /**
    * @param _id {string} ID of the user we want get
@@ -32,7 +37,6 @@ export class UserResolver {
     input: RegisterInput,
     @Context() context
   ): Promise<UserEntity> {
-    console.log('dskjandsa')
     const user = context.req.user_credentials
     return this.userService.register(input)
   }

@@ -6,8 +6,4 @@ export class RegisterInput {
   firstname: string
   @Field(() => String)
   lastname: string
-  @Field(() => String)
-  email: string
-  @Field(() => String)
-  password: string
 }

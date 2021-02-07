@@ -16,18 +16,14 @@ type Query {
 }
 
 input RegisterInput {
-  email: String!
   firstname: String!
   lastname: String!
-  password: String!
 }
 
 type UserEntity {
   createdAt: DateTime!
-  email: String!
   firstname: String!
   id: ID!
   lastname: String!
-  password: String!
   updatedAt: DateTime!
 }
