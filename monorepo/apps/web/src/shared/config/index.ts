@@ -1,1 +1,1 @@
-export { default as firebase } from './firebase.config'
+export { default as firebase } from './firebase-client.config'

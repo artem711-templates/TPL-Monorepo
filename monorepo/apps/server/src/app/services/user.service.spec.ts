@@ -13,8 +13,8 @@ describe('UserResolver Unit test', () => {
   let service: UserService
 
   const input: RegisterInput = {
-    firstname: 'Alexandro',
-    lastname: 'Jefferson',
+    firstName: 'Alexandro',
+    lastName: 'Jefferson',
   }
 
   let data = {

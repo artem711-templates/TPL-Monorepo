@@ -1,7 +1,7 @@
 // PLUGINS IMPORTS //
 import React from 'react'
-import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProps } from 'next/app'
 
 // COMPONENTS IMPORTS //
 import { Header, AppWrapper } from '@web/components/layout'

@@ -4,7 +4,7 @@ import { UserInputError } from 'apollo-server-express'
 
 // # COMPONENTS IMPORTS //
 import { UserEntity } from '@server/models'
-import { PrismaService } from '@server/services'
+import { PrismaService } from './prisma.service'
 import { RegisterInput } from '@server/resolvers/user/dto'
 
 /////////////////////////////////////////////////////////////////////////////

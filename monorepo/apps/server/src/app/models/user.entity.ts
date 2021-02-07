@@ -10,9 +10,9 @@ export class UserEntity {
   @Field(() => ID)
   id: string
   @Field(() => String)
-  firstname: string
+  firstName: string
   @Field(() => String)
-  lastname: string
+  lastName: string
 
   @Field(() => Date)
   createdAt: Date

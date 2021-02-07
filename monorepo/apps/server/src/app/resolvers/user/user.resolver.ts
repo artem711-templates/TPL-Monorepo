@@ -35,8 +35,10 @@ export class UserResolver {
     @Args('input')
     input: RegisterInput,
     @Context() context: any
-  ): Promise<UserEntity> {
-    const user = context.req.user_credentials
-    return this.userService.register(input)
+  ) {
+    const { email, uid } = context.req.user_credentials
+
+    return {}
+    return this.userService.register({ ...input, email, uid })
   }
 }

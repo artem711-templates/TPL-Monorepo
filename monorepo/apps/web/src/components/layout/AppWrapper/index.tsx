@@ -1,12 +1,12 @@
 // PLUGINS IMPORTS //
 import React, { ReactNode, StrictMode } from 'react'
-import { Provider } from 'react-redux'
 import {
   ApolloClient,
   InMemoryCache,
   createHttpLink,
   ApolloProvider,
 } from '@apollo/client'
+import { Provider } from 'react-redux'
 import { setContext } from '@apollo/client/link/context'
 
 // COMPONENTS IMPORTS //
