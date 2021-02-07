@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "strict": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      // Libraries
+      "@lib/config": ["libs/config/src/index.ts"],
+      "@lib/translator": ["libs/translator/src/index.ts"],
+      // Mobile
+      "@mobile/shared": ["apps/mobile/src/shared"],
+      "@mobile/redux": ["apps/mobile/src/state"],
+      "@mobile/cp/atoms": ["apps/mobile/src/components/atoms"],
+      "@mobile/cp/molecules": ["apps/mobile/src/components/molecules"],
+      "@mobile/cp/organisms": ["apps/mobile/src/components/organisms"],
+      // Website
+      "@web/redux": ["apps/web/src/state"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

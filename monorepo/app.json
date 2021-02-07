@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "iec",
+    "slug": "iec",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./apps/mobile/assets/images/icon.png",
+    "splash": {
+      "image": "./apps/mobile/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+
+    "userInterfaceStyle": "automatic",
+    "web": {
+      "favicon": "./apps/mobile/assets/images/favicon.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.iec",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Authentication"
+      }
+    },
+    "android": {
+      "package": "com.iec"
+    },
+    "experiments": {
+      "turboModules": true
+    }
+  }
+}
