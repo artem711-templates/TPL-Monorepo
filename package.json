@@ -14,7 +14,7 @@
     "e2e": "nx e2e",
     "dep-graph": "nx dep-graph",
     "lint": "bash tools/shell/lint.sh changed",
-    "postinstall": "patch-package && npm run prisma:generate"
+    "postinstall": "npx prisma generate"
   },
   "private": true,
   "dependencies": {
