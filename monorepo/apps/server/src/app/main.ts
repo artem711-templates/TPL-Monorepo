@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 
 // EXTRA IMPORTS //
-import { FirebaseConfig } from './config'
+import { FirebaseConfig } from '@server/config'
 
 /////////////////////////////////////////////////////////////////////////////
 

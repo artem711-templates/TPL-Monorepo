@@ -4,11 +4,10 @@ import { APP_GUARD } from '@nestjs/core'
 
 // # COMPONENTS IMPORTS //
 import { UserResolver } from './user.resolver'
-import { UserService } from '../../services/user.service'
-import { PrismaService } from '../../services/prisma.service'
+import { PrismaService, UserService } from '@server/services'
 
 // # EXTRA IMPORTS //
-import { AuthGuard } from '../../shared/guards/auth.guard'
+import { AuthGuard } from '@server/shared/guards'
 
 /////////////////////////////////////////////////////////////////////////////
 
