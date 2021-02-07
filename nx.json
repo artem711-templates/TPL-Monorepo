@@ -1,0 +1,29 @@
+{
+  "npmScope": "monorepo",
+  "affected": { "defaultBase": "master" },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NzhjOWEwODgtYjFkMC00ZTZmLThmOTgtZmQyY2I5MDVkYzk3fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "web": { "tags": [] },
+    "server": { "tags": [] },
+    "config": { "tags": [] },
+    "translator": { "tags": [] }
+  }
+}
