@@ -2,19 +2,20 @@
 import { FirebaseAdminModule } from '@aginix/nestjs-firebase-admin'
 import { Test, TestingModule } from '@nestjs/testing'
 import admin from 'firebase-admin'
-import { PrismaService } from '../../services/prisma.service'
+import { PrismaService } from '../services/prisma.service'
 
 // EXTRA IMPORTS //
-import { UserService } from '../../services/user.service'
-import { RegisterInput } from './dto/register.input'
+import { UserService } from '../services/user.service'
+import { RegisterInput } from '../routes/user/dto/register.input'
 
 /////////////////////////////////////////////////////////////////////////////
-function randomString(length) {
-  var result = ''
-  var characters =
+
+function randomString(length: number) {
+  let result = ''
+  const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_+=-'
-  var charactersLength = characters.length
-  for (var i = 0; i < length; i++) {
+  const charactersLength = characters.length
+  for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength))
   }
   return result
@@ -68,6 +69,11 @@ describe('UserResolver Unit test', () => {
       expect(result).toEqual({ ...input, ...data })
     })
 
-    it('should delete the account', async () => {})
+    it('should delete the account', async () => {
+      await service._deleteUser(data.id)
+      const result = await service.getProfile(data.id)
+      console.log(result)
+      expect(result).toBeNull()
+    })
   })
 })
