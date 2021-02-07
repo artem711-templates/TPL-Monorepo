@@ -1,0 +1,20 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    ["styled-components", { "pure": true, "ssr": true }],
+
+    [
+      "module-resolver",
+      {
+        "alias": {
+          // Libraries
+          "@lib/config": ["./libs/config/src"],
+          "@lib/translator": ["./libs/translator/src"],
+          // Mobile
+          "@mobile/shared": ["./apps/mobile/src/shared"],
+          "@mobile/redux": ["./apps/mobile/src/state"]
+        }
+      }
+    ]
+  ]
+}

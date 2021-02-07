@@ -1,0 +1,12 @@
+mutation register {
+  register(
+    input: {
+      email: "tap.kajrrp.tap@gmail.com"
+      firstname: "Artem"
+      lastname: "Some"
+      password: "123456789"
+    }
+  ) {
+    firstname
+  }
+}
