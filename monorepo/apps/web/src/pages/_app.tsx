@@ -4,8 +4,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 // COMPONENTS IMPORTS //
-import AppWrapper from '../components/layout/AppWrapper/AppWrapper'
-import { Header } from '../components/layout'
+import { Header, AppWrapper } from '@web/components/layout'
 
 // EXTRA IMPORTS //
 

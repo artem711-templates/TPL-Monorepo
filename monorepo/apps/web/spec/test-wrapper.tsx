@@ -4,13 +4,13 @@ import '@testing-library/jest-dom'
 import 'mutationobserver-shim'
 
 // COMPONENTS IMPORTS //
-import AppWrapper from '../src/components/layout/AppWrapper/AppWrapper'
+import AppWrapper from '@web/components/layout/AppWrapper'
 
 // EXTRA IMPORTS //
 
 /////////////////////////////////////////////////////////////////////////////
 
-const customRender = (ui, options) =>
+const customRender = (ui: any, options: any) =>
   render(ui, {
     wrapper: AppWrapper,
     ...options,
