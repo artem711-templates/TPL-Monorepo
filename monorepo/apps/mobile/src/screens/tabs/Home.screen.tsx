@@ -1,21 +1,20 @@
 // # PLUGINS IMPORTS //
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { useTranslation } from 'react-i18next'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import {useTranslation} from 'react-i18next'
+import {SafeAreaView} from 'react-native-safe-area-context'
 
 // # COMPONENTS IMPORTS //
-import { CButton, Typography } from '@mobile/cp/atoms'
-const { Paragraph } = Typography
+import {CButton, Typography} from '~/mobile/components/atoms'
+const {Paragraph} = Typography
 
 // # EXTRA IMPORTS //
-import { useThemeSelector } from '@mobile/redux'
+import {ThemeProvider} from '~/mobile/providers'
 
 /////////////////////////////////////////////////////////////////////////////
 
 export default function HomeScreen() {
-  const { selectedTheme, setTheme } = useThemeSelector()
-  const { t } = useTranslation()
+  const {selectedTheme, setTheme} = ThemeProvider.useTheme()
+  const {t} = useTranslation()
 
   return (
     <SafeAreaView>
@@ -27,5 +26,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({})

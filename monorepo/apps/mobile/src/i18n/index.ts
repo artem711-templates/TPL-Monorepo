@@ -29,6 +29,7 @@ export default i18n
 // )
 console.log(
   Object.keys(languages).map((key) => ({
+    // @ts-ignore
     [key]: { translation: languages[key] },
   }))
 )

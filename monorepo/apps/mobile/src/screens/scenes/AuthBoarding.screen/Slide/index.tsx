@@ -5,7 +5,7 @@ import { View, Image, useWindowDimensions, StyleSheet } from 'react-native'
 // # COMPONENTS IMPORTS //
 
 // # EXTRA IMPORTS //
-import { Typography } from '@mobile/cp/atoms'
+import { Typography } from '~/mobile/components/atoms'
 const { Paragraph } = Typography
 
 /////////////////////////////////////////////////////////////////////////////

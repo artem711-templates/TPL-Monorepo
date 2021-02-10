@@ -1,7 +1,8 @@
 // # PLUGINS IMPORTS //
-import React, { useEffect, useState } from 'react'
-import { AppearanceProvider } from 'react-native-appearance'
+import React, {useEffect, useState} from 'react'
+import {AppearanceProvider} from 'react-native-appearance'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import {createStackNavigator} from '@react-navigation/stack'
 import firebase from 'firebase'
 
 // # COMPONENTS IMPORTS //
@@ -9,9 +10,8 @@ import BaseStack from './BaseStack.stack'
 import AuthStack from './AuthStack.stack'
 
 // # EXTRA IMPORTS //
-import { config, utils as Utils } from '@mobile/shared'
-import { createStackNavigator } from '@react-navigation/stack'
-import { IRootStackParams } from './typings'
+import {asyncStorageKeys} from '~/mobile/shared/config'
+import {IRootStackParams} from './typings'
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -22,7 +22,7 @@ export default function Navigation() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
-        const isUsed = await AsyncStorage.getItem(config.localStorageKeys.used)
+        const isUsed = await AsyncStorage.getItem(asyncStorageKeys.used)
         setIsAuth(!!isUsed)
       }
     })
@@ -30,15 +30,13 @@ export default function Navigation() {
 
   return (
     <AppearanceProvider>
-      <Utils.Preloader assets={[]}>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {isAuth ? (
-            <Stack.Screen name={'BaseStack'} component={BaseStack} />
-          ) : (
-            <Stack.Screen name={'AuthStack'} component={AuthStack} />
-          )}
-        </Stack.Navigator>
-      </Utils.Preloader>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {isAuth ? (
+          <Stack.Screen name={'BaseStack'} component={BaseStack} />
+        ) : (
+          <Stack.Screen name={'AuthStack'} component={AuthStack} />
+        )}
+      </Stack.Navigator>
     </AppearanceProvider>
   )
 }

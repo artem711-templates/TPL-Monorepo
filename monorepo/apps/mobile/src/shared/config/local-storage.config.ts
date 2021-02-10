@@ -1,4 +1,4 @@
-export const localStorageKeys = {
+export const asyncStorageKeys = {
   theme: 'theme',
   used: 'used',
 }
