@@ -37,6 +37,7 @@
     "@react-navigation/stack": "^5.14.2",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react-native": "^7.1.0",
     "apollo-server-express": "^2.19.2",
     "class-transformer": "^0.3.2",
     "core-js": "^3.6.5",
